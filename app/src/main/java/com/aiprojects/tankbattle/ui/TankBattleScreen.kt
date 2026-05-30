@@ -605,21 +605,37 @@ private fun DirectionButtonPad(onSteer: (Direction?) -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(DpadGap)
     ) {
-        DpadArrowButton("↑") { handleDown(Direction.Up) } { handleUp(Direction.Up) }
+        DpadArrowButton(
+            "↑",
+            onDown = { handleDown(Direction.Up) },
+            onUp = { handleUp(Direction.Up) },
+        )
         Row(
             horizontalArrangement = Arrangement.spacedBy(DpadGap),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            DpadArrowButton("←") { handleDown(Direction.Left) } { handleUp(Direction.Left) }
+            DpadArrowButton(
+                "←",
+                onDown = { handleDown(Direction.Left) },
+                onUp = { handleUp(Direction.Left) },
+            )
             // 中间空白按钮（可选）
             Box(
                 modifier = Modifier
                     .size(DpadBtnSize)
                     .background(Color.Transparent)
             )
-            DpadArrowButton("→") { handleDown(Direction.Right) } { handleUp(Direction.Right) }
+            DpadArrowButton(
+                "→",
+                onDown = { handleDown(Direction.Right) },
+                onUp = { handleUp(Direction.Right) },
+            )
         }
-        DpadArrowButton("↓") { handleDown(Direction.Down) } { handleUp(Direction.Down) }
+        DpadArrowButton(
+            "↓",
+            onDown = { handleDown(Direction.Down) },
+            onUp = { handleUp(Direction.Down) },
+        )
     }
 }
 
